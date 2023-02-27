@@ -1,0 +1,11 @@
+<isloop items="${pdict.giftcertificates}" var="lineItem">
+    <div class="row">
+        <div class="col-12">
+            <div class="card uuid-${lineItem.UUID}">
+                <div class="card-body gift-certificate__tile">
+                    <isinclude template="checkout/giftcard/miniCartGiftCardTile" />
+                </div>
+            </div>
+        </div>
+    </div>
+</isloop>

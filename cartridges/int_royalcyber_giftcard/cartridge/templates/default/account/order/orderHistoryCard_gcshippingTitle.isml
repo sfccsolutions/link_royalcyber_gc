@@ -1,0 +1,3 @@
+<div class="${empty(orderItems) === true ? 'gift-card-shipping' : 'product-shipping'}">
+    <isinclude template="account/order/shippingTitle" />
+</div>

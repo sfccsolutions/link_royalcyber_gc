@@ -1,0 +1,43 @@
+<div class="product-line-item gift-certificate__tile" data-product-line-item="${lineItem.UUID}">
+    <div class="line-item-header">
+        <isinclude template="checkout/giftcard/giftCardGiftCardNameAndRemove" />
+    </div>
+    <div class="product-line-item-details d-flex flex-row">
+        <div class="item-image">
+            <img class="product-image" src="${lineItem.custom.rc_img}"
+                alt="${Resource.msg('global.giftcertificate', 'giftcard', null)}"
+                title="${Resource.msg('global.giftcertificate', 'giftcard', null)}" />
+        </div>
+        <div class="item-attributes">
+            <isif condition="${lineItem.recipientName != null}">
+                <span class="line-item-attributes">${Resource.msg('global.to', 'giftcard', null)}
+                    <isprint value="${lineItem.recipientName}" /></span>
+            </isif>
+            <isif condition="${lineItem.recipientName != null && lineItem.senderName != null}">
+                <span>${Resource.msg('global.dash', 'giftcard', null)}</span>
+            </isif>
+            <isif condition="${lineItem.senderName != null}">
+                <span class="line-item-attributes">${Resource.msg('global.from', 'giftcard', null)}
+                    <isprint value="${lineItem.senderName}" /></span>
+            </isif>
+            <isif condition="${lineItem.custom.rc_expirationDate != null}">
+            <div class="attribute">
+                <span class="label">
+                    ${Resource.msg('global.expireson', 'giftcard', null)}
+                </span>
+                <span class="value">
+                    <isprint value="${(new Date(lineItem.custom.rc_expirationDate)).toLocaleDateString()}" />
+                </span>
+            </div>
+        </isif>
+        </div>
+        <!--- item price --->
+        <div class="col-4 line-item-unit-price">
+            <isif condition="${lineItem.basePrice}">
+                <p class="line-item-pricing-info">
+                    <isprint value="${lineItem.basePrice}" />
+                </p>
+            </isif>
+        </div>
+    </div>
+</div>

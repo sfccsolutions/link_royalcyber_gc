@@ -1,0 +1,41 @@
+<div class="col-lg-7 product-card-footer">
+    <div class="row">
+        <!---item price--->
+        <div class="col-4 line-item-price-${lineItem.UUID}">
+            <p class="line-item-price-info">${Resource.msg('label.each.item.price', 'cart', null)}</p>
+            <isset name="price" value="${lineItem.basePrice}" scope="page" />
+            <div class="giftcertamount clearfix">
+                <span class="value">
+                    <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID}">${lineItem.basePrice}
+                    </div>
+                </span>
+            </div>
+        </div>
+
+        <!--- quantity --->
+        <div class="col-4 col-lg-3 line-item-quantity">
+            <p class="line-item-price-info">
+               ${Resource.msg('giftcard.quantity.name', 'giftcard', null)}
+            </p>
+            <span>${Resource.msg('giftcard.quantity', 'giftcard', null)}</span>
+        </div>
+
+        <!--- line item total price --->
+        <div class="col-4 line-item-total-price">
+            <p class="line-item-price-info">
+                ${Resource.msg('label.total.price', 'cart', null)}
+            </p>
+            <div class="giftcertamount clearfix">
+                <span class="value">
+                    <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID}">${lineItem.basePrice}
+                    </div>
+                </span>
+            </div>
+        </div>
+
+        <!--- extra slot for spacing reasons due to large remove button --->
+        <div class="col-lg-1 hidden-md-down remove-line-item-lg"></div>
+    </div>
+
+
+</div>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+	<group formid="balance">
+		<field formid="redeemgiftcardID" 
+		label="giftcard.balance.giftCardID.label" 
+		type="string" mandatory="true" description="" 
+		parse-error="giftcard.balance.giftCardID.error" 
+		missing-error="giftcard.balance.giftCardID.error" 
+		value-error="giftcard.balance.giftCardID.error"/>
+	</group>
+</form>

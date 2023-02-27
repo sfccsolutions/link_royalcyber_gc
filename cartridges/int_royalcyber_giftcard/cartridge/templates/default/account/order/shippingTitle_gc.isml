@@ -1,0 +1,4 @@
+<isif condition="${!empty(order.giftcertificates[0])}">
+    <p class="gift-card-delivery hide">${Resource.msg('giftcard.deliveredto', 'giftcard', null)}
+        ${order.giftcertificates[0].recipientEmail}</p>
+</isif>

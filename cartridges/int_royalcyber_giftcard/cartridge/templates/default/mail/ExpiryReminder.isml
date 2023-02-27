@@ -1,0 +1,8 @@
+<body>
+    <p>
+       ${Resource.msg('giftcard.expiry.message','giftcard',null)} <isprint value="${pdict.giftcertificate.custom.rc_GiftCertificateCode}"/>
+    </p>
+    <p>
+        <a href="${URLUtils.https(new dw.web.URLAction('Home-Show', dw.system.Site.current.ID))}">${Resource.msg('giftcard.shopnow','giftcard',null)}</a>
+    </p>
+</body>

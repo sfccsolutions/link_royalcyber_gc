@@ -1,0 +1,143 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+<html>
+<body>
+    <table>
+        <tr>
+            <td>
+                <center>
+                    <table>
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <iscomment>Header</iscomment>
+                                            <isif condition="${empty(pdict.GiftCertificate.recipientName)}">
+                                                <h2>${Resource.msg('giftcard.dearcustomer', 'giftcard', null)}</h2>
+                                            <iselse/>
+                                                <h2> ${StringUtils.format(Resource.msg('giftcard.header', 'giftcard', null), pdict.GiftCertificate.senderName)}</h2>
+                                            </isif>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <isif condition="${empty(pdict.GiftCertificate.recipientName)}">
+                                                <h1>${Resource.msg('giftcard.dearcustomer', 'giftcard', null)}</h1>
+                                            <iselse/>
+                                                <h1>${StringUtils.format(Resource.msg('giftcard.dear', 'giftcard', null), pdict.GiftCertificate.recipientName)}</h1>
+                                            </isif>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <p>
+                                                            <isif
+                                                                condition="${empty(pdict.GiftCertificate.senderName)}">
+                                                                ${Resource.msg('giftcard.someone', 'giftcard', null)}
+                                                            <iselse/>
+                                                                <isprint value="${pdict.GiftCertificate.senderName}" />
+                                                            </isif>
+                                                            ${Resource.msg('giftcard.paysattention', 'giftcard', null)}
+                                                            <span>${StringUtils.format(Resource.msg('giftcard.paysattentiongift', 'giftcard', null), pdict.GiftCertificate.amount)}</span>
+                                                            ${Resource.msg('giftcard.paysattentiongiftsession', 'giftcard', null)}
+                                                            <a
+                                                                href="${URLUtils.https(new dw.web.URLAction('Home-Show', dw.system.Site.current.ID))}">${Resource.msg('giftcard.dwonlinestore', 'giftcard', null)}</a>
+                                                            ${Resource.msg('giftcard.period', 'giftcard', null)}
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>
+                                                            <isif condition="${!empty(pdict.GiftCertificate.message)}">
+                                                                <isif
+                                                                    condition="${empty(pdict.GiftCertificate.senderName)}">
+                                                                    ${Resource.msg('giftcard.someone', 'giftcard', null)}
+                                                                <iselse/>
+                                                                    <isprint
+                                                                        value="${pdict.GiftCertificate.senderName}" />
+                                                                </isif>
+                                                                ${Resource.msg('giftcard.msgleftforyou', 'giftcard', null)}
+                                                            </isif>
+                                                        </p>
+                                                <tr>
+                                                    <td>
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    <p>
+                                                                        <isif
+                                                                            condition="${!empty(pdict.GiftCertificate.message)}">
+                                                                            <isprint
+                                                                                value="${pdict.GiftCertificate.message}" />
+                                                                        </isif>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <p>
+                                                        ${Resource.msg('giftcard.toredeem', 'giftcard', null)}
+                                                        <isprint value="${pdict.GiftCertificate.giftCertificateCode}" />
+                                                    </p>
+                                                </tr>
+                                                <tr>
+                                                    <p>
+                                                        ${Resource.msg('global.enabled', 'giftcard', null)}
+                                                        <isprint
+                                                            value="${(new Date(pdict.GiftCertificate.custom.rc_enableDate)).toLocaleDateString()}" />
+                                                    </p>
+                                                </tr>
+                                                <tr>
+                                                    <p>
+                                                        ${Resource.msg('global.expireson', 'giftcard', null)}
+                                                        <isprint
+                                                            value="${(new Date(pdict.GiftCertificate.custom.rc_expirationDate)).toLocaleDateString()}" />
+                                                    </p>
+                                                </tr>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
+                                        <td>
+
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    <a
+                                                                        href="${URLUtils.https(new dw.web.URLAction('Home-Show', dw.system.Site.current.ID))}">${Resource.msg('giftcard.shopnow', 'giftcard', null)}</a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+            </td>
+        </tr>
+    </table>
+    </center>
+    </td>
+    </tr>
+    </table>
+</body>
+</html>

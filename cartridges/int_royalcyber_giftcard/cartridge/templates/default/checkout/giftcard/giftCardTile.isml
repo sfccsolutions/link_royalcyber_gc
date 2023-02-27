@@ -1,0 +1,36 @@
+<div class="card product-info uuid-${lineItem.UUID} cart-gift-certificate gift-certificate__tile">
+    <div class="product-line-item-details d-flex flex-row">
+        <div class="item-image">
+            <img class="product-image" src="${lineItem.custom.img}" 
+                alt="${Resource.msg('global.giftcertificate', 'giftcard', null)}" 
+                title="${Resource.msg('global.giftcertificate', 'giftcard', null)}"/>
+        </div>
+        <div class="item-attributes">
+            <p class="line-item-name">${Resource.msg('global.giftcertificate', 'giftcard', null)}</p>
+            <isif condition="${lineItem.recipientName!=null}">
+                <span class="line-item-attributes">${Resource.msg('global.to','giftcard',null)} <isprint value="${lineItem.recipientName}" /></span>
+            </isif>
+            <isif condition="${lineItem.recipientName!=null && lineItem.senderName!=null}">
+                <span>${Resource.msg('global.dash','giftcard',null)}</span>
+            </isif>
+            <isif condition="${lineItem.senderName!=null}">
+                <span class="line-item-attributes">${Resource.msg('global.from','giftcard',null)} <isprint value="${lineItem.senderName}" /></span>
+            </isif>
+        </div>
+        <!--- item price --->
+        <div class="col-4 line-item-unit-price">
+            <isif condition="${lineItem.basePrice}">
+            <p class="line-item-pricing-info">
+            <span class="line-item-total-text line-item-total-price-label">
+                    ${Resource.msg('label.total.price','cart',null)}
+            </span>
+                <!--<isprint value="${lineItem.basePrice}" />-->
+                <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID}">${lineItem.basePrice}</div>
+            </p>
+            </isif>
+        </div>
+    </div>
+    <isif condition="${pdict.order && pdict.order.items.totalQuantity > 1}">
+        <p>${Resource.msg('giftcardpurchase.deliveryto','giftcard',null)} ${lineItem.recipientEmail}</p>
+    </isif>
+</div>

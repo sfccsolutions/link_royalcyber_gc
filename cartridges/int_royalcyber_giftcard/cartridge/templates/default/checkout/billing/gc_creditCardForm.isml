@@ -1,0 +1,8 @@
+<iscomment> eGift </iscomment>
+<isset name="gcPITotal" value="${0}" scope="pdict"/>
+<isset name="giftCertPI" value="${pdict.basket.giftCertificatePaymentInstruments}" scope="pdict"/>
+<isloop items="${pdict.basket.giftCertificatePaymentInstruments}" var="giftCertPI">
+    <isset name="gcPITotal" value="${pdict.gcPITotal + giftCertPI.paymentTransaction.amount}" scope="pdict"/>
+</isloop>
+<isset name="hideCreditCard" value="${pdict.gcPITotal.toFixed(2) > 0 && pdict.gcPITotal.toFixed(2) === pdict.basket.totalGrossPrice.value.toFixed(2)}" scope="page"/>
+<iscomment> end eGift </iscomment>

@@ -1,0 +1,59 @@
+<isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/login.css');
+        assets.addJs('/js/giftcard.js');
+</isscript>
+<form action="${pdict.actionUrl}" class="purchasegiftcard" method="POST" name="${pdict.giftcardForm.htmlName}">
+   <div class="form-group required" >
+        <label class="form-control-label" for="from">
+            ${Resource.msg('giftcard.purchase.from.label','giftcard', null)}
+        </label>
+        <isif condition="${customer.profile.firstName != 'null'}">
+            <input type="text" class="form-control" id="from" value="${customer.profile.firstName} ${customer.profile.lastName}" <isprint value="${pdict.giftcardForm.purchase.from.attributes}" encoding="off" />/>
+        <iselse>
+            <input type="text" class="form-control" id="from" <isprint value="${pdict.giftcardForm.purchase.from.attributes}" encoding="off" />/>  
+        </isif>
+        <div class="invalid-feedback">${Resource.msg('giftcard.purchase.from.missing-error', 'giftcard', null)}</div>
+    </div>                       
+
+    <div class="form-group required">
+        <label class="form-control-label" for="recipient">
+            ${Resource.msg('giftcard.purchase.to.label','giftcard', null)}
+        </label>
+        <input type="text" class="form-control" id="recipient" <isprint value="${pdict.giftcardForm.purchase.to.attributes}" encoding="off" />/>
+        <div class="invalid-feedback">${Resource.msg('giftcard.purchase.to.missing-error', 'giftcard', null)}</div>
+    </div>
+
+    <div class="form-group required">
+        <label class="form-control-label" for="recipientEmail" >
+            ${Resource.msg('giftcard.purchase.recipientemail.label','giftcard', null)}
+        </label>
+        <input type="email" class="form-control" id="recipientEmail" data-pattern-mismatch="${Resource.msg('error.message.parse.email.profile.form','forms',null)}" <isprint value="${pdict.giftcardForm.purchase.recipientEmail.attributes}" encoding="off" />/>
+        <div class="invalid-feedback">${Resource.msg('giftcard.purchase.recipientemail.missing-error', 'giftcard', null)}</div>
+    </div>
+    <div class="form-group required">
+        <label class="form-control-label" for="confirmRecipientEmail" >
+            ${Resource.msg('giftcard.purchase.confirmrecipientemail.label','giftcard', null)}
+        </label>
+        <input type="email" class="form-control" id="confirmRecipientEmail" data-pattern-mismatch="${Resource.msg('error.message.parse.email.profile.form','forms',null)}" <isprint value="${pdict.giftcardForm.purchase.confirmRecipientEmail.attributes}" encoding="off" />/>
+        <div class="invalid-feedback">${Resource.msg('giftcard.confirmrecipientemailmissingerror', 'giftcard', null)}</div>
+    </div> 
+    <div class="form-group required">
+        <label class="form-control-label" for="amount">
+            ${Resource.msg('giftcard.amountlabel','giftcard', null)}
+        </label>
+        <input type="text" class="form-control" id="amount" <isprint value="${pdict.giftcardForm.purchase.amount.attributes}" encoding="off" />/>
+        <div class="invalid-feedback"></div>
+    </div> 
+    <div class="form-group label-above">
+        <label class="form-control-label" for="message">
+            ${Resource.msg('giftcard.messagelabel','giftcard', null)}
+        </label>
+        <input type="textarea" class="form-control" id="message" <isprint value="${pdict.giftcardForm.purchase.message.attributes}" encoding="off" />/>
+        <div class="invalid-feedback"></div>
+    </div>
+    <button type="submit" class="btn btn-block btn-primary">${Resource.msg('button.text.purchaseForm', 'giftcard', null)}</button>
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+</form>
+
+

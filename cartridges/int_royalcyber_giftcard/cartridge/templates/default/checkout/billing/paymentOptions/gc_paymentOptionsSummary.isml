@@ -1,0 +1,3 @@
+<isif condition="${payment.paymentMethod === 'GIFT_CERTIFICATE'}">
+            <isinclude template="checkout/billing/paymentOptions/giftCardSummary" /> 
+</isif> 

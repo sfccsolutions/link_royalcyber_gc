@@ -1,0 +1,10 @@
+<div class="line-item-name">
+    <span>${Resource.msg('global.giftcertificate', 'giftcard', null)}</span>
+</div>
+<div class="remove-line-item">
+    <button type="button" class="remove-btn-lg remove-gift-item btn btn-light" data-toggle="modal"
+        data-target="#removeGiftCardModal" data-pid="${lineItem.UUID}" data-name="${lineItem.lineItemText}"
+        data-action="${pdict.actionUrls.removeGiftCardLineItem}" data-uuid="${lineItem.UUID}" aria-label="remove">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>

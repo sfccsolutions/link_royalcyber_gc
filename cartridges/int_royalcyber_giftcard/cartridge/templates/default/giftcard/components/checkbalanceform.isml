@@ -1,0 +1,29 @@
+<isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/login.css');
+        assets.addJs('/js/giftcard.js');
+</isscript>
+<div class="invalid-balance-feedback">
+</div>
+<div class="card order-product-summary">
+    <div class="card-body">
+        <form action="${URLUtils.url('Giftcard-CheckBalance')}" class="checkbalance" method="POST"
+            name="checkbalance-form">
+            <div  id="formid" class="form-group label-above">
+                <label class="form-control-label" for="giftcardID">
+                    ${Resource.msg('giftcard.balance.giftCardID.label', 'giftcard', null)}
+                </label>
+                <input type="text" class="form-control giftcardID" id="giftcardID"  />
+                <div class="invalid-feedback">${Resource.msg('giftcard.balance.giftCardID.error', 'giftcard', null)}
+                </div>
+            </div>
+
+            <button type="submit" id="btnsubmitcheckbalance" class="btn btn-block btn-primary"
+                data-url="${URLUtils.https('Giftcard-CheckBalance', 'giftcardID')}">${Resource.msg('button.text.checkbalanceForm', 'giftcard', null)}</button>
+            <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+        </form>
+    </div>
+</div>
+<div class="check-balance-container"> 
+</div>
+

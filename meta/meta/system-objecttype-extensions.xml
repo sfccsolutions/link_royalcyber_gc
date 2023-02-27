@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <type-extension type-id="GiftCertificate">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="rc_enableDate">
+                <display-name xml:lang="x-default">enableDate</display-name>
+                <description xml:lang="x-default">gift certificate is enabled on this date</description>
+                <type>date</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="rc_expirationDate">
+                <display-name xml:lang="x-default">expirationDate</display-name>
+                <description xml:lang="x-default">The expiration date for the Gift Certificate</description>
+                <type>date</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="GiftCertificateLineItem">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="rc_expirationDate">
+                <display-name xml:lang="x-default">expirationDate</display-name>
+                <description xml:lang="x-default">The expiration date of the Gift Certificate line item</description>
+                <type>date</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="rc_img">
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="SitePreferences">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="rc_availabilityDays">
+                <display-name xml:lang="x-default">availabilityDays</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>0.0</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="rc_enableGiftCertificateDays">
+                <display-name xml:lang="x-default">enableGiftCertificateDays</display-name>
+                <description xml:lang="x-default">This will be the number of days the Gift Certificate shall be enabled after its purchase</description>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>1.0</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="rc_expiryReminderDays">
+                <display-name xml:lang="x-default">expiryReminderDays</display-name>
+                <description xml:lang="x-default">Set number of days for which the reminder email shall be sent</description>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>5.0</default-value>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="rc_giftCertificateAvailablityDays">
+                <display-name xml:lang="x-default">giftCertificateAvailablityDays</display-name>
+                <attribute attribute-id="rc_availabilityDays"/>
+                <attribute attribute-id="rc_enableGiftCertificateDays"/>
+                <attribute attribute-id="rc_expiryReminderDays"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    
+</metadata>

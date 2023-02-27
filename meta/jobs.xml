@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jobs xmlns="http://www.demandware.com/xml/impex/jobs/2015-07-01">
+    <job job-id="rc_EnableGiftCertificates" priority="0">
+        <description/>
+        <parameters/>
+        <flow>
+            <context site-id="RefArch"/>
+            <step step-id="rc_enableGiftCertificates" type="custom.rc_EnableGiftCertificates" enforce-restart="false">
+                <description/>
+                <parameters/>
+            </step>
+        </flow>
+        <rules/>
+        <triggers>
+            <run-once enabled="false">
+                <date>2021-11-08Z</date>
+                <time>13:45:34.000Z</time>
+            </run-once>
+        </triggers>
+    </job>
+
+    <job job-id="rc_SendGCExpiryReminderEmail" priority="0">
+        <description/>
+        <parameters/>
+        <flow>
+            <context site-id="RefArch"/>
+            <step step-id="rc_sendGCExpiryReminderEmail" type="custom.rc_SendExpiryAlerts" enforce-restart="false">
+                <description/>
+                <parameters/>
+            </step>
+        </flow>
+        <rules/>
+        <triggers>
+            <run-once enabled="false">
+                <date>2021-10-28Z</date>
+                <time>11:06:23.000Z</time>
+            </run-once>
+        </triggers>
+    </job>
+
+</jobs>

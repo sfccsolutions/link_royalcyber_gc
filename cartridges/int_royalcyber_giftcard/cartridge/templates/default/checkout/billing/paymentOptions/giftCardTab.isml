@@ -1,0 +1,14 @@
+<li class="nav-item" role="presentation" data-method-id="${paymentOption.ID}">
+    <a <isif condition="${pdict.paymentTabVal === 'gift-card-content'}">
+        class = "nav-link active"
+        <iselse>
+            class = "nav-link"
+            </isif>
+
+            href="#checkbalance" data-toggle="tab" role="tab" aria-controls="checkbalance" aria-selected="false"
+            id="checkbalance-tab">
+
+            <img class="gift-card-option" src="${URLUtils.staticURL(URLUtils.CONTEXT_LIBRARY, '', 'giftcard.png')}"
+                height="32" alt="${paymentOption.name}" title="${paymentOption.name}">
+    </a>
+</li>

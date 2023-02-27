@@ -1,0 +1,3 @@
+<isif condition="${pdict.order.giftcertificates.length != pdict.order.numItems}">
+    <span class="edit-button pull-right">${Resource.msg('action.edit.step', 'checkout', null)}</span>
+</isif>

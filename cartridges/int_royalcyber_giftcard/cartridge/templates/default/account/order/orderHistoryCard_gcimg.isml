@@ -1,0 +1,12 @@
+<isif condition="${empty(orderItems) === true}">
+    <isif condition="${!empty(order.giftcertificates[0]) === true}">
+        <isset name="cardImg" value="${order.giftcertificates[0].custom.img}" scope="page" />
+        <isif condition="${!empty(cardImg) === true}">
+            <img class="img-fluid" src="${cardImg}" height="20px" alt="${order.giftcertificates[0].lineItemText}"
+                title="${order.giftcertificates[0].lineItemText}">
+        </isif>
+    <iselse/>
+        <img class="img-fluid" src="${order.firstLineItem.imageURL}" alt="${order.firstLineItem.alt}"
+            title="${order.firstLineItem.title}">
+    </isif>
+</isif>

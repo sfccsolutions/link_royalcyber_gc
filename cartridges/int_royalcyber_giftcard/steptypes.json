@@ -1,0 +1,66 @@
+{
+    "step-types":
+    {
+      "script-module-step":
+      [
+        {
+          "@type-id":"custom.rc_SendExpiryAlerts",
+          "@supports-parallel-execution":"false",
+          "@supports-site-context":"true",
+          "@supports-organization-context":"false",
+          "description":"This script sends alerts to the Gift Certificate receipient of the expiration date nearing.",
+          "module":"int_royalcyber_giftcard/cartridge/scripts/steps/sendExpiryAlerts.js",
+          "function":"SendExpiryAlerts",
+          "transactional":"true",
+          "timeout-in-seconds":"900",
+          "status-codes": 
+          {
+            "status": 
+            [
+                {
+                  "@code": "ERROR",
+                  "description": "Used when the step failed with an error."
+                },
+                {
+                  "@code": "FINISHED",
+                  "description": "Used when the step finished successfully."
+                },
+                {
+                  "@code": "FINISHED_WITH_WARNINGS",
+                  "description": "Used when the step finished with warnings."
+                }
+            ]
+          }
+        },
+        {
+          "@type-id":"custom.rc_EnableGiftCertificates",
+          "@supports-parallel-execution":"false",
+          "@supports-site-context":"true",
+          "@supports-organization-context":"false",
+          "description":"This script enables the gift certificates",
+          "module":"int_royalcyber_giftcard/cartridge/scripts/steps/enableGiftCertificates.js",
+          "function":"EnableGiftCertificates",
+          "transactional":"true",
+          "timeout-in-seconds":"900",
+          "status-codes": 
+          {
+            "status": 
+            [
+                {
+                  "@code": "ERROR",
+                  "description": "Used when the step failed with an error."
+                },
+                {
+                  "@code": "FINISHED",
+                  "description": "Used when the step finished successfully."
+                },
+                {
+                  "@code": "FINISHED_WITH_WARNINGS",
+                  "description": "Used when the step finished with warnings."
+                }
+            ]
+          }
+        }
+      ]
+    }
+  }

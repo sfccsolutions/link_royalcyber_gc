@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <custom-type type-id="rc_GiftCertificateObj">
+        <display-name xml:lang="x-default">GiftCertificateObj</display-name>
+        <description xml:lang="x-default">Gift Certificate custom object to store information for sending expiry alert</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="rc_GiftCertificateCode">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="rc_ExpirationDate">
+                <display-name xml:lang="x-default">ExpirationDate</display-name>
+                <type>date</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="rc_RecipientEmail">
+                <display-name xml:lang="x-default">RecipientEmail</display-name>
+                <type>email</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="rc_customerID">
+                <display-name xml:lang="x-default">customerID</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="rc_enableDate">
+                <display-name xml:lang="x-default">enableDate</display-name>
+                <description xml:lang="x-default">enable the Gift Certificate after this date</description>
+                <type>date</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="rc_giftCertificate">
+                <display-name xml:lang="x-default">rc_giftCertificate</display-name>
+                <attribute attribute-id="rc_ExpirationDate"/>
+                <attribute attribute-id="rc_RecipientEmail"/>
+                <attribute attribute-id="rc_customerID"/>
+                <attribute attribute-id="rc_GiftCertificateCode"/>
+                <attribute attribute-id="rc_enableDate"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+
+</metadata>

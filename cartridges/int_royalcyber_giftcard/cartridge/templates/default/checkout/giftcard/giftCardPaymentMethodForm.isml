@@ -1,0 +1,17 @@
+<isif condition="${pdict.order && pdict.order.giftcertificates.length == 0}">
+    <div class="invalid-code-container">
+    </div>
+    <div class="giftcard-apply gift-certificate-checkout d-none" >
+        <button class="btn btn-block apply btn-outline-primary" id="add-giftcard" type="submit"
+            data-url="${URLUtils.https('Checkout-RedeemGiftCard', 'giftcardID')}">
+            <span>${Resource.msg('global.apply', 'giftcard', null)}</span>
+        </button>
+    </div>
+    <div class="form-row giftcert-error error">
+        <isif condition="${pdict.GiftCardStatus && pdict.GiftCardStatus.error}">
+            ${Resource.msg('billing.' + pdict.GiftCardStatus.code, 'giftcard', pdict.GiftCardStatus.code)}
+        </isif>
+    </div>
+    <div class="check-code-container">
+    </div>
+</isif>

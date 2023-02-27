@@ -1,0 +1,32 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+    </isscript>
+    <div class="hero slant-down login-banner">
+        <h1 class="page-title">${Resource.msg('global.giftcertificate', 'giftcard', null)}</h1>
+    </div>
+    <div class="container login-page">
+        <!---Breadcrumbs--->
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
+        <div class="row justify-content-center equal-height">
+            <div class="col-sm-8 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="login-form-nav">
+                            <isinclude template="giftcard/components/navTabs" />
+                            <div class="tab-content">
+                                <div class="tab-pane ${pdict.navTabValue === 'purchasegiftcard' ? 'active' : ''}" id="purchasegiftcard" role="tabpanel" aria-labelledby="purchasegiftcard-tab">
+                                    <isinclude template="giftcard/components/purchasegiftcardform" />
+                                    
+                                </div>
+                                <div class="tab-pane ${pdict.navTabValue === "checkbalance" ? 'active' : ''}" id="checkbalance" role="tabpanel" aria-labelledby="checkbalance-tab">
+                                    <isinclude template="giftcard/components/checkbalanceform" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>

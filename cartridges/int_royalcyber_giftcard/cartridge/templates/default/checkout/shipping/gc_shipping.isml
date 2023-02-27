@@ -1,0 +1,9 @@
+<div class="multi-shippings">
+    <isloop items="${pdict.order.giftcertificates}" var="lineItem" status="shipmentLoopState">
+        <div class="card">
+            <div class="card-header gift-certificate__tile">
+                <isinclude template="checkout/giftcard/giftCardTile" />
+            </div>
+        </div>
+    </isloop>
+</div>

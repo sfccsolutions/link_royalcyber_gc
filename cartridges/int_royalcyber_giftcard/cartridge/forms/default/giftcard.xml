@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+
+	<!-- form fields for purchase of gift card -->	
+	<group formid="purchase">
+		<field formid="from" label="giftcard.purchase.from.label" type="string" mandatory="true"
+			description=""
+			parse-error="giftcard.nameparseerror"
+			missing-error="giftcard.purchase.from.missing-error"
+			binding="from"/>
+		<field formid="to" label="giftcard.purchase.to.label" type="string" mandatory="true"
+			description=""
+			parse-error="giftcard.nametoparseerror"
+			missing-error="giftcard.purchase.to.missing-error"
+			binding="to"/>
+		<field formid="recipientEmail" label="giftcard.purchase.recipientemail.label" type="string" mandatory="true"
+			description=""
+			regexp="^[\w.%+-]+@[\w.-]+\.[\w]{2,}$" 
+			binding="recipientEmail"
+			parse-error="giftcard.purchase.recipientemail.parse-error"
+			missing-error="giftcard.purchase.recipientemail.missing-error"
+			value-error="giftcard.purchase.recipientemail.value-error"/>
+		<field formid="confirmRecipientEmail" label="giftcard.purchase.confirmrecipientemail.label" type="string" mandatory="true"
+			description=""
+			regexp="^[\w.%+-]+@[\w.-]+\.[\w]{2,}$" 
+			binding="confirmRecipientEmail"
+			parse-error="giftcard.confirmrecipientemailparseerror"
+			missing-error="giftcard.confirmrecipientemailmissingerror"
+			value-error="giftcard.confirmrecipientemailvalueerror"/>
+		<field formid="message" label="giftcard.messagelabel" type="string" mandatory="false"
+			description="giftcard.purchasemessagedescription"
+			binding="message"/>
+		<field formid="amount" label="giftcard.amountlabel" type="number" mandatory="true" 
+			description="giftcard.amountdescription"
+			binding="amount"
+			parse-error="giftcard.amountparseerror"
+			missing-error="giftcard.amountmissingerror"
+			value-error="giftcard.amountvalueerror"/>
+		
+		<field formid="lineItemId" type="string" mandatory="false" binding="lineitemid"/>
+	</group>
+
+	<!-- form field for balance check -->	
+	<group formid="balance">
+		<field formid="giftcardID" label="giftcard.balance.giftCardID.label" type="string" mandatory="true" 
+			description=""
+			parse-error="giftcard.balance.giftCardID.error"
+			missing-error="giftcard.balance.giftCardID.error"
+			value-error="giftcard.balance.giftCardID.error"/>
+	</group>
+
+</form>

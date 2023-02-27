@@ -1,0 +1,50 @@
+<isif condition="${pdict.basket.getGiftCertificateLineItems().length == 0}">
+    <div class="redemption giftcert" id="giftcerts-applied">
+        <isset name="gcPITotal" value="${0}" scope="pdict" />
+        <isif condition="${pdict.basket.giftCertificatePaymentInstruments.size() > 0}">
+            <isloop items="${pdict.basket.giftCertificatePaymentInstruments}" var="giftCertPI" status="loopState">
+                <isset name="gcPITotal" value="${pdict.gcPITotal + giftCertPI.paymentTransaction.amount}"
+                    scope="pdict" />
+                <div class="card-body">
+                    <div class="success giftcert-pi col-sm-12" id="gc-${giftCertPI.getGiftCertificateCode()}"
+                        data-gcpi-total="${pdict.gcPITotal.toFixed(2)}"
+                        data-total-price="${pdict.basket.totalGrossPrice.value.toFixed(2)}"
+                        data-url="${URLUtils.https('Checkout-RemoveGiftCertificate', 'giftCertificateID', giftCertPI.getGiftCertificateCode())}">
+                        <a id="rgc-${giftCertPI.getGiftCertificateCode()}" class="remove-checkout-gc" href="${URLUtils.https('Checkout-RemoveGiftCertificate', 'giftCertificateID', giftCertPI.getGiftCertificateCode(), 'format',                                                                              'old')}">
+                            <img class="close-button"
+                                src="${URLUtils.staticURL(URLUtils.CONTEXT_LIBRARY, '', 'btnclose.png')}"
+                                alt="${Resource.msg('global.remove', 'giftcard', null)}" height="20" />
+                        </a>
+                        <span class="gift-card-code">${giftCertPI.getMaskedGiftCertificateCode()}</span><br>
+                        <span class="gift-card-code"> ${Resource.msg('giftcard.used', 'giftcard', null)}
+                            <span class="gift-card-amount"> ${giftCertPI.paymentTransaction.amount} </span>
+                    </div>
+                </div>
+
+            </isloop>
+            <div class="gift-certificate-maximum d-none">
+                ${Resource.msgf('giftcert.purchase.errormaximum', 'giftcard', null )}
+            </div>
+            <isif
+                condition="${pdict.basket.totalGrossPrice != null && pdict.basket.totalGrossPrice.value - pdict.gcPITotal >= 0}">
+                <div class="row grand-total leading-lines">
+                    <isset name="OrderTotal" value="${pdict.basket.totalGrossPrice.value - pdict.gcPITotal}"
+                        scope="pdict" />
+                    <div class="order-receipt-label">
+                        ${Resource.msg('giftcard.order.total', 'giftcard', null)} ${pdict.OrderTotal.toFixed(2)}
+                    </div>
+                </div>
+            </isif>
+            <isif
+                condition="${pdict.basket.totalGrossPrice != null && pdict.basket.totalGrossPrice.value - pdict.gcPITotal < 0}">
+                <div class="row grand-total leading-lines">
+                    <isset name="OrderTotal" value="${pdict.basket.totalGrossPrice.value - pdict.gcPITotal}"
+                        scope="pdict" />
+                    <div class="order-receipt-label">
+                        ${Resource.msg('giftcard.order.total', 'giftcard', null)} ${pdict.OrderTotal.toFixed(2)}
+                    </div>
+                </div>
+            </isif>
+        </isif>
+    </div>
+</isif>

@@ -1,0 +1,73 @@
+<div class="card product-info uuid-${lineItem.UUID} cart-gift-certificate gift-certificate__tile">
+    <div class="row ">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-12 d-flex flex-row cart-gift-certificate-content">
+                    <div class="item-image">
+                        <img class="product-image" src="${lineItem.custom.rc_img}"
+                            alt="${Resource.msg('global.giftcertificate', 'giftcard', null)}"
+                            title="${Resource.msg('global.giftcertificate', 'giftcard', null)}" />
+                    </div>
+                    <tr class="rowgiftcert">
+                        <td class="item-details">
+                            <div class="attribute">
+                                <div class="line-item-name">
+                                    ${Resource.msg('global.giftcertificate', 'giftcard', null)}
+                                </div>
+                                <isif condition="${lineItem.recipientName != null}">
+                                    <span class="label">
+                                        ${Resource.msg('global.to', 'giftcard', null)}
+                                    </span>
+                                    <span class="value">
+                                        <isprint value="${lineItem.recipientName}" />
+                                    </span>
+                                    <span>
+                                        ${Resource.msg('global.dash', 'giftcard', null)}
+                                    </span>
+                                </isif>
+                                <isif condition="${lineItem.senderName != null}">
+                                    <span class="label">
+                                        ${Resource.msg('global.from', 'giftcard', null)}
+                                    </span>
+                                    <span class="value">
+                                        <isprint value="${lineItem.senderName}" />
+                                    </span>
+                                </isif>
+                                <isif condition="${lineItem.custom.rc_expirationDate != null}">
+                                    <div class="attribute">
+                                        <span class="label">
+                                            ${Resource.msg('global.expireson', 'giftcard', null)}
+                                        </span>
+                                        <span class="value">
+                                            <isprint
+                                                value="${(new Date(lineItem.custom.rc_expirationDate)).toLocaleDateString()}" />
+                                        </span>
+                                    </div>
+                                </isif>
+                            </div>
+                        </td>
+                        <div class="col-12 d-lg-none">
+                            <hr class="line-item-divider">
+                        </div>
+
+                        <isinclude template="cart/giftcardTile/cartGiftCardTilePrice" />
+
+
+                        <div class="remove-line-item">
+                            <button type="button" class="remove-btn-lg remove-gift-item btn btn-light"
+                                data-toggle="modal" data-target="#removeGiftCardModal" data-pid="${lineItem.UUID}"
+                                data-name="${lineItem.lineItemText}"
+                                data-action="${pdict.actionUrls.removeGiftCardLineItem}" data-uuid="${lineItem.UUID}"
+                                aria-label="remove">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </tr>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 d-lg-none">
+            <hr class="line-item-divider">
+        </div>
+    </div>
+</div>

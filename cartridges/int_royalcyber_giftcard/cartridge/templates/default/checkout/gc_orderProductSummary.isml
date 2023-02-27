@@ -1,0 +1,6 @@
+<!---gift cards--->
+<isif condition="${pdict.order && pdict.order.giftcertificates.length !== 0}">
+    <isloop items="${pdict.order.giftcertificates}" var="lineItem">
+        <isinclude template="checkout/giftcard/giftCardTile" />
+    </isloop>
+</isif>

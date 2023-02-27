@@ -1,0 +1,17 @@
+<isif condition="${pdict.order && pdict.order.giftcertificates.length > 0}">
+    <isloop items="${pdict.order.giftcertificates}" var="giftLineItem">
+        <isif condition="${giftLineItem}">
+            ${Resource.msg('global.giftcertificate', 'giftcard', null)}
+            <br />
+            <!--- line item total price --->
+            ${Resource.msg('label.total.price', 'cart', null)} - ${giftLineItem.price}
+            <br />
+            ${Resource.msg('global.from', 'giftcard', null)} ${giftLineItem.senderName}
+            ${Resource.msg('global.dash', 'giftcard', null)} ${Resource.msg('global.to', 'giftcard', null)}
+            ${giftLineItem.recipientName}
+            <br />
+            ${Resource.msg('giftcardpurchase.deliveryto', 'giftcard', null)} ${giftLineItem.recipientEmail}
+            <br />
+        </isif>
+    </isloop>
+</isif>

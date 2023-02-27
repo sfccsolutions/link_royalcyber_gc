@@ -1,0 +1,5 @@
+<isif condition="${paymentOption.ID === 'GIFT_CERTIFICATE'}">
+      <isif condition="${pdict.basket.getGiftCertificateLineItems().length == 0}">
+      <isinclude template="checkout/billing/paymentOptions/giftCardTab" /> 
+      </isif> 
+</isif> 

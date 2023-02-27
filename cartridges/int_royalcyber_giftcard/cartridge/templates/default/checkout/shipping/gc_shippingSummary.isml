@@ -1,0 +1,4 @@
+<isif condition="${!empty(pdict.order.giftcertificates)}">
+    <p class="gift-card-delivery hide">${Resource.msg('giftcard.deliveredto', 'giftcard', null)}
+        ${pdict.order.giftcertificates[0].recipientEmail}</p>
+</isif>

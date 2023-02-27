@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.invalid-balance-feedback {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.25rem;
+    font-size: 80%;
+    color: #c00;
+}
+
+.invalid-code-container {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.25rem;
+    font-size: 80%;
+    color: #c00;
+}
+.check-balance-container {
+    width: 50%;   
+}
+
+.giftcard-apply {
+    width: 30%;
+    float: right;
+    margin-top: none;
+}
